@@ -606,7 +606,9 @@ function App() {
                 Request a briefing ↗
               </a>
               <a
-                href="mailto:marius@madventurefin.com"
+                href="https://www.fufitci.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-ghost btn-large"
               >
                 Explore a Fufitci diagnostic ↗
