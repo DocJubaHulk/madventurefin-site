@@ -5,9 +5,12 @@ function App() {
     <div className="site-shell">
       <header className="hero">
         <div className="hero-overlay"></div>
+
         <div className="nav">
           <div className="brand">MADVENTUREFIN.</div>
-          <a href="#contact" className="nav-cta">Request a briefing</a>
+          <a href="#contact" className="nav-cta">
+            Request a briefing
+          </a>
         </div>
 
         <div className="hero-content">
@@ -19,8 +22,12 @@ function App() {
             impact at scale.
           </p>
           <div className="hero-actions">
-            <a href="#mission" className="btn btn-primary">Explore how it works</a>
-            <a href="#contact" className="btn btn-secondary">Request a briefing</a>
+            <a href="#mission" className="btn btn-primary">
+              Explore how it works
+            </a>
+            <a href="#contact" className="btn btn-secondary">
+              Request a briefing
+            </a>
           </div>
         </div>
       </header>
@@ -38,9 +45,7 @@ function App() {
                 solutions to real problems. At the same time, billions in
                 funding are allocated towards impact.
               </p>
-              <p>
-                Yet most projects never reach implementation.
-              </p>
+              <p>Yet most projects never reach implementation.</p>
               <p>
                 This is not due to a lack of intent, talent, or capital. It is
                 because systems are not designed to consistently identify,
@@ -202,9 +207,7 @@ function App() {
         <div className="container footer-inner">
           <div>
             <div className="brand">MADVENTUREFIN.</div>
-            <p className="footer-text">
-              Digital infrastructure for systemic impact.
-            </p>
+            <p className="footer-text">Digital infrastructure for systemic impact.</p>
           </div>
           <div className="footer-links">
             <a href="mailto:support@madventurefin.com">support@madventurefin.com</a>
