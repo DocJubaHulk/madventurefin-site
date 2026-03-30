@@ -1335,11 +1335,13 @@ footer {
   backdrop-filter: blur(2px);
   z-index: 200;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 
 .drawer-overlay--visible {
   opacity: 1;
+  pointer-events: auto;
 }
 
 /* ── Drawer panel ─────────────────────────────────────────── */
