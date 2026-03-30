@@ -405,8 +405,13 @@ function App() {
               directional assessments, not policy prescriptions.
             </p>
 
-            <a href="mailto:marius@madventurefin.com" className="teal-btn">
-              Request a diagnostic for your city →
+            <a 
+              href="https://www.fufitci.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="teal-btn"
+            >
+              Request a diagnostic for your city ↗
             </a>
           </div>
         </div>
@@ -479,8 +484,13 @@ function App() {
                   confidence, not assumption
                 </li>
               </ul>
-              <a href="mailto:marius@madventurefin.com" className="aud-cta">
-                Explore a Fufitci diagnostic →
+              <a 
+                href="https://www.fufitci.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="aud-cta"
+              >
+                Explore a Fufitci diagnostic ↗
               </a>
             </div>
           </div>
