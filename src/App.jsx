@@ -1,7 +1,26 @@
 import "./App.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
+  // Close drawer on escape key
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "Escape") closeMenu();
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, []);
+
+  // Prevent body scroll when drawer is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal");
 
@@ -35,12 +54,52 @@ function App() {
               <a href="#who">Who we serve</a>
               <a href="#contact">Contact</a>
             </div>
-            <a href="mailto:marius@madventurefin.com" className="btn btn-solid">
+            <a href="mailto:marius@madventurefin.com" className="btn btn-solid nav-cta">
               Request a briefing
             </a>
           </div>
+
+          {/* Hamburger button — mobile only */}
+          <button
+            className={`hamburger${menuOpen ? " hamburger--open" : ""}`}
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
       </nav>
+
+      {/* Mobile drawer backdrop */}
+      <div
+        className={`drawer-overlay${menuOpen ? " drawer-overlay--visible" : ""}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+
+      {/* Mobile slide-in drawer */}
+      <aside className={`drawer${menuOpen ? " drawer--open" : ""}`} aria-label="Mobile navigation">
+        <div className="drawer-header">
+          <div className="wordmark">MADVENTUREFIN.</div>
+          <button className="drawer-close" onClick={closeMenu} aria-label="Close menu">&#x2715;</button>
+        </div>
+
+        <nav className="drawer-nav">
+          <a href="#why" onClick={closeMenu}>Why this matters</a>
+          <a href="#fufitci" onClick={closeMenu}>Fufitci</a>
+          <a href="#who" onClick={closeMenu}>Who we serve</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
+        </nav>
+
+        <div className="drawer-cta">
+          <a href="mailto:marius@madventurefin.com" className="btn btn-solid" onClick={closeMenu}>
+            Request a briefing &#x2197;
+          </a>
+        </div>
+      </aside>
 
       <section className="hero">
         <div className="glow glow-1"></div>
@@ -372,8 +431,7 @@ function App() {
                 You already have capital, networks, and intent. What has been
                 missing is the diagnostic infrastructure that reveals where your
                 capital can drive genuine inclusive growth — and the
-                implementation system that translates it into accountable
-                outcomes.
+                implementation system that translates it into outcomes.
               </p>
               <ul className="aud-items">
                 <li>
@@ -456,14 +514,14 @@ function App() {
             </div>
 
             <div className="mad-card sponsors reveal">
-              <div className="mad-card-kicker">MAD Sponsors</div>
+              <div className="mad-card-kicker">MAD Impact Sponsors</div>
               <h3>Donors and institutions funding what actually works</h3>
               <div className="mad-stat">100</div>
               <div className="mad-stat-label">
                 Cities in the Fufitci diagnostic vision
               </div>
               <p>
-                MAD Sponsors are the donors, foundations, and institutional
+                MAD Impact Sponsors are the donors, foundations, and institutional
                 partners who understand that{" "}
                 <strong>
                   intent without infrastructure produces fragmented outcomes.
@@ -537,7 +595,7 @@ function App() {
               We are building the diagnostic and implementation infrastructure
               required to enable inclusive growth at scale. If you are a donor,
               institution, or potential ecosystem partner — request a briefing
-              with Dr Marius Joubert directly.
+              with Dr Marius Joubert.
             </p>
 
             <div className="cta-buttons">
@@ -567,7 +625,7 @@ function App() {
               </div>
               <p className="footer-desc">
                 The diagnostic and implementation infrastructure for inclusive
-                growth at city scale — built for MAD Sponsors, ecosystem
+                growth at city scale — built for MAD Impact Sponsors, ecosystem
                 partners, and the institutions MAD enough to actually change
                 something.
               </p>
@@ -587,7 +645,7 @@ function App() {
               <div className="footer-col-title">Contact</div>
               <div className="footer-links">
                 <a href="mailto:marius@madventurefin.com">
-                  marius@madventurefin.com
+                  info@madventurefin.com
                 </a>
                 <a href="http://www.madventurefin.com">www.madventurefin.com</a>
                 <a href="http://www.fufitci.com">www.fufitci.com</a>
